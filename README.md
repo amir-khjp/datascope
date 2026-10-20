@@ -2,10 +2,14 @@
 
 **An end-to-end data mining and visualization toolkit covering the core techniques a data scientist uses — with an interactive dashboard, not just notebooks.**
 
+**Live demo:** not yet deployed — see [Deploying a live demo](#deploying-a-live-demo) below to add one.
+
 ```bash
 pip install datascope
 datascope app
 ```
+
+![DataScope dashboard screenshot](examples/datascope_screenshot.png)
 
 Upload a CSV (or use a bundled sample dataset) and explore every stage of a
 typical data science workflow through interactive Plotly charts:
@@ -71,6 +75,15 @@ print(clusters.silhouette)
 results = modeling.run_classifiers(df[feature_cols], df["target"])
 best_model = results[0].fitted_model
 ```
+
+## Deploying a live demo
+
+This repo is ready to deploy on [Streamlit Community Cloud](https://share.streamlit.io) (free):
+
+1. Sign in at share.streamlit.io with your GitHub account.
+2. Click "New app", pick this repo and branch, and set the main file path to `src/datascope/app.py`.
+3. Deploy. It reads `requirements.txt` (which installs this package in editable mode) automatically.
+4. Copy the resulting `*.streamlit.app` URL into the "Live demo" line at the top of this README.
 
 ## Design
 
