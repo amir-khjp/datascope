@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "datascope"
+version = "0.1.0"
+description = "An end-to-end data mining and visualization toolkit covering the core techniques a data scientist uses: profiling, feature engineering, dimensionality reduction, clustering, association rules, modeling, interpretability, anomaly detection, and time series — with an interactive dashboard."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "DataScope contributors" }]
+requires-python = ">=3.9"
+keywords = ["data-mining", "data-science", "visualization", "clustering", "dimensionality-reduction", "eda", "machine-learning"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Visualization",
+]
+dependencies = [
+    "pandas>=1.5",
+    "numpy>=1.23",
+    "scikit-learn>=1.2",
+    "scipy>=1.10",
+    "statsmodels>=0.14",
+    "plotly>=5.18",
+    "streamlit>=1.30",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+association = ["mlxtend>=0.23"]
+advanced = ["umap-learn>=0.5"]
+interpret = ["shap>=0.45"]
+dev = ["pytest>=7.4", "ruff>=0.5", "build>=1.0"]
+
+[project.scripts]
+datascope = "datascope.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/amir-khjp/datascope"
+Issues = "https://github.com/amir-khjp/datascope/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+ignore = ["E501"]
